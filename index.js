@@ -9,6 +9,7 @@ const fs = require('fs');
 function parseCommandLineArgs(){
     let config = {}
     config.debug = false
+    config.PIIFile = "data/PII.csv"
     config.endpointURL = ""
     config.encryption = ""
     config.endpoint = ""
@@ -257,7 +258,7 @@ async function postBodyToLiveRamp(config, matchRequestBody) {
     // 2. LOAD AND PARSE CSV
     let rawPIIData = []
 
-    fs.createReadStream('data/PII_full.csv')
+    fs.createReadStream(config.PIIFile)
         .pipe(csv())
         .on('data', (data) => {
             rawPIIData.push(data)

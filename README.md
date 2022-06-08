@@ -19,6 +19,9 @@
 - {encryption} can be "none", "sha1", "sha256", or "md5" if your PII includes emails only. 
 - {encryption} can be "none" or "sha1" if your PII includes more than emails.
 - limit must be zero, adding the limit parameter causes the request to fail. There is an open question to LR support about why this is the case
+- this can be set up in IntelliJ IDEA easily using npm configs, but you still need to open package.json and click on the "run npm install" toast that appears at the bottom of the screen
+
+![IDEA](idea.png)
 
 ## Liveramp Links:
 
