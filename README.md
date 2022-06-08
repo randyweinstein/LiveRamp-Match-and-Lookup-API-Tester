@@ -2,8 +2,8 @@
 
 ## Important Security Notes
 
-1. **Do not share the credentials in ClientCredentials.js**
-2. **Do not share Personally identifiable information (PII) in PII.json**
+1. **Do not share the credentials in ClientCredentials.js!**
+2. **Do not share Personally identifiable information (PII) in PII.csv PII.xlsx!**
 
 ## Installation & Running
 
