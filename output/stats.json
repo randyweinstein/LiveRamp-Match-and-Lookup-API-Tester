@@ -1,0 +1,14 @@
+{
+    "request": {
+        "totalRows": 161
+    },
+    "response": {
+        "matchRate": "40%",
+        "totalResults": 161,
+        "httpStatus200Results": 161,
+        "httpStatus4XXResults": 0,
+        "derivedRampIDsFound": 97,
+        "maintainedRampIDsFound": 64,
+        "matches": {}
+    }
+}

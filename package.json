@@ -1,0 +1,22 @@
+{
+  "name": "liveramp_test_data",
+  "version": "1.0.0",
+  "description": "Generates POST body data for LiveRamp Match and Lookup API endpoints",
+  "author": "Randy Weinstein",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "post": "node index.js"
+  },
+  "keywords": [],
+  "dependencies": {
+    "md5": "^2.3.0",
+    "sha256": "^0.2.0",
+    "sha1": "^1.1.1",
+    "axios": "^0.27.2",
+    "csv-parser": "^3.0.0",
+    "axios-oauth-client": "^1.4.4",
+    "axios-token-interceptor": "^0.2.0"
+  },
+  "license": "ISC"
+}
