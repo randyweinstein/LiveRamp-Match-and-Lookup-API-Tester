@@ -57,11 +57,12 @@ function parseCommandLineArgs(){
 }
 
 function validatePIIData(config, rawPIIData){
+    let totalRows = 0
     let bodyRows = []
     if (config.debug) {
         console.log("VALIDATION:")
     }
-    rawPIIData.forEach(row => {
+    rawPIIData.some(row => {
         if (config.debug) {
             console.log(JSON.stringify(row))
         }
@@ -104,6 +105,7 @@ function validatePIIData(config, rawPIIData){
             }
         }
         bodyRows.push(bodyRowParams)
+        if(++totalRows >=999 ) return bodyRows
     })
 
     return bodyRows
