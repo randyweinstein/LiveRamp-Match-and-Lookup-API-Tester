@@ -4,12 +4,12 @@
             "totalRows": 1000
         },
         "response": {
-            "matchRate": "67%",
+            "matchRate": "69%",
             "totalResults": 1000,
             "httpStatus200Results": 1000,
             "httpStatus4XXResults": 0,
-            "derivedRampIDsFound": 329,
-            "maintainedRampIDsFound": 671,
+            "derivedRampIDsFound": 310,
+            "maintainedRampIDsFound": 690,
             "matches": {}
         }
     }

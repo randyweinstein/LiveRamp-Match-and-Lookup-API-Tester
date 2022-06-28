@@ -37,13 +37,12 @@ class ResponseParser{
                         }
                     })
                 }
-
             } else {
                 this.stats.response.httpStatus4XXResults++
             }
 
 
-            this.stats.response.matchRate = "" + Math.round((this.stats.response.maintainedRampIDsFound / this.stats.response.totalResults * 100)) + "%"
+            this.stats.response.matchRate = "" + Math.round((this.stats.response.maintainedRampIDsFound / this.stats.request.totalRows * 100)) + "%"
         })
 
     }
