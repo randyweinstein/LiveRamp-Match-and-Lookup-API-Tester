@@ -13,13 +13,12 @@
 4. Fill in test data in PII.json with a **minimum** of 101 entries
 5. Command line: npm run post {encryption} {limit} {list of fields to parse from PII.json}
 
-## Notes:
-
 - npm run post starts the program
 - {encryption} can be "none", "sha1", "sha256", or "md5" if your PII includes emails only. 
 - {encryption} can be "none" or "sha1" if your PII includes more than emails.
 - limit must be zero, adding the limit parameter causes the request to fail. There is an open question to LR support about why this is the case
-- Valid combination of parameters are:
+
+Valid combination of parameters are:
   - Lookup Endpoint
     - md5 0 email
     - sha256 0 email
@@ -34,8 +33,11 @@
     - none 0 name email
     - none 0 name phone
     - none 0 name zipCode
-    - none 0 name street [city?] [state?] zipCode
-- this can be set up in IntelliJ IDEA easily using npm configs, but you still need to open package.json and click on the "run npm install" toast that appears at the bottom of the screen
+    - none 0 name street [city?] [state?] zipCode 
+  
+   
+  This can be set up in IntelliJ IDEA easily using npm configs, but you still need to open package.json and click on the "run npm install" toast that appears at the bottom of the screen
+    
 
 ![IDEA](idea.png)
 
