@@ -5,7 +5,7 @@ const sha256 = require("sha256");
 class LiveRampRequestBuilder {
 
     static buildRequestBody(config, validatedData) {
-        let matchRequestBody = [];
+        let requestBodyArray = [];
         if (validatedData.length > 0) {
             validatedData.forEach(row => {
                 if (row.length > 0) {
@@ -16,40 +16,40 @@ class LiveRampRequestBuilder {
                         matchRequestBodyRowStringPrefix += "/" + config.encryption + "?key="
 
                     }
-                    let matchRequestBodyRowString = ""
+                    let requestBodyRowString = ""
                     row.forEach(rowParams => {
                         Object.keys(rowParams).forEach(key => {
                             switch (config.encryption) {
                                 case 'none':
-                                    matchRequestBodyRowString += key + '=' + rowParams[key] + '&'
+                                    requestBodyRowString += key + '=' + rowParams[key] + '&'
                                     break
                                 case 'md5':
                                 case 'sha256':
                                 case 'sha1':
-                                    if (matchRequestBodyRowString.length > 1) {
-                                        matchRequestBodyRowString += " "
+                                    if (requestBodyRowString.length > 1) {
+                                        requestBodyRowString += " "
                                     }
-                                    matchRequestBodyRowString += rowParams[key].toLowerCase()
+                                    requestBodyRowString += rowParams[key].toLowerCase()
                                     break
                             }
                         })
 
                     })
                     if (config.encryption === 'none') {
-                        matchRequestBodyRowString = matchRequestBodyRowString.substr(0, matchRequestBodyRowString.length - 1)
+                        requestBodyRowString = requestBodyRowString.substr(0, requestBodyRowString.length - 1)
                     }
                     if (config.encryption === 'md5') {
-                        matchRequestBodyRowString = md5(matchRequestBodyRowString)
+                        requestBodyRowString = md5(requestBodyRowString)
                     }
                     if (config.encryption === 'sha1') {
-                        matchRequestBodyRowString = sha1(matchRequestBodyRowString)
+                        requestBodyRowString = sha1(requestBodyRowString)
                     }
                     if (config.encryption === 'sha256') {
-                        matchRequestBodyRowString = sha256(matchRequestBodyRowString)
+                        requestBodyRowString = sha256(requestBodyRowString)
                     }
 
 
-                    matchRequestBody.push(matchRequestBodyRowStringPrefix + matchRequestBodyRowString)
+                    requestBodyArray.push(matchRequestBodyRowStringPrefix + requestBodyRowString)
                 }
             })
 
@@ -57,11 +57,9 @@ class LiveRampRequestBuilder {
         }
         if (config.debug) {
             console.log("REQUEST:")
-            console.log(JSON.stringify(matchRequestBody, null, 4))
+            console.log(JSON.stringify(requestBodyArray, null, 4))
         }
-        return matchRequestBody
-
-
+        return requestBodyArray
 
     }
 

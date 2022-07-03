@@ -1,8 +1,8 @@
 class ResponseParser{
-    constructor(request, response) {
+    constructor() {
         this.stats = {}
         this.stats.request = {}
-        this.stats.request.totalRows = request.length
+        this.stats.request.totalRows = 0
         this.stats.response = {}
         this.stats.response.matchRate = "0 %"
         this.stats.response.totalResults = 0
@@ -11,7 +11,9 @@ class ResponseParser{
         this.stats.response.derivedRampIDsFound = 0
         this.stats.response.maintainedRampIDsFound = 0
         this.stats.response.matches = {}
-
+    }
+    addResponseData(request, response) {
+        this.stats.request.totalRows += request.length
         response.data.forEach(row => {
             this.stats.response.totalResults++
             if (row.code === 200) {
@@ -41,11 +43,10 @@ class ResponseParser{
                 this.stats.response.httpStatus4XXResults++
             }
 
-
             this.stats.response.matchRate = "" + Math.round((this.stats.response.maintainedRampIDsFound / this.stats.request.totalRows * 100)) + "%"
         })
-
     }
+
 }
 module.exports = ResponseParser
 
