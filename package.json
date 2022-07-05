@@ -1,6 +1,6 @@
 {
   "name": "liveramp_test_data",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Tests LiveRamp Match and Lookup API endpoints",
   "author": "Randy Weinstein",
   "private": true,

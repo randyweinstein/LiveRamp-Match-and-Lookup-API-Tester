@@ -12,7 +12,7 @@ const fs = require('fs');
     //parse command line args
     let config
     try {
-        config = new Config(false)
+        config = new Config(false, "data/PII.csv")
         config.parseCommandLineArgs()
     } catch (e) {
         console.log(e);
@@ -23,7 +23,7 @@ const fs = require('fs');
     try {
         const rawPIIData = await csv().fromFile(config.PIIFile);
         //50,000 is 3.5 MB with full addresses, we should keep this below 5 MB
-        validator = new DataValidator(config, 3000)
+        validator = new DataValidator(config, 80000)
         validator.validate(rawPIIData)
     } catch (e) {
         console.log(e);
