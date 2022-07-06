@@ -3,9 +3,8 @@ class DataValidator {
     static minimumNumberOfRows = 101
     static maximumNumberOfRows = 1000
 
-    constructor(config, limit = 50000) {
+    constructor(config) {
         this.config = config
-        this.limit = limit
         this.rows = Array()
     }
 
@@ -107,7 +106,7 @@ class DataValidator {
             if(isValid){
                 this.rows.push(rowParams)
                 //return true breaks from Array.some()
-                if(++index >= this.limit ) return true
+                if(++index >= this.config.totalRequestLimit ) return true
             }
             return false
         })

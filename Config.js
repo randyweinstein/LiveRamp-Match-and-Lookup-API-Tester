@@ -1,8 +1,9 @@
 
 class Config {
-    constructor(debug = false, PIIFile = "data/PII.csv" ) {
+    constructor(debug = false, PIIFile = "data/PII.csv", totalRequestLimit = 50000 ) {
         this.debug = debug
         this.PIIFile = PIIFile
+        this.totalRequestLimit = totalRequestLimit
     }
 
 
